@@ -29,8 +29,10 @@ def predict():
 
     output = prediction
     
-
-    return render_template('index.html', prediction_text=' cardiovascular disease(yes:1,no:0) {}'.format(output))
+    if output==1:
+        return render_template('index.html', prediction_text='There are high chances of you having cardiovascular disease')
+    else:
+        return render_template('index.html', prediction_text=' You are doing fine')
 
 @app.route('/predict_api',methods=['POST'])
 def predict_api():
